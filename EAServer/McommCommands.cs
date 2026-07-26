@@ -78,6 +78,27 @@ namespace SSX3_Server.EAServer
                 }
             }
 
+            if (split[0].ToLower() == "ip")
+            {
+                if (split.Length > 1)
+                {
+                    try
+                    {
+                        client.OverrideIP = split[1];
+
+                        GenerateMcommMessageUser("Override IP Set", client);
+                    }
+                    catch
+                    {
+                        GenerateMcommMessageUser("Invalid IP Set", client);
+                    }
+                }
+                else
+                {
+                    GenerateMcommMessageUser("Please add IP", client);
+                }
+            }
+
             if (split[0].ToLower() == "crossregion")
             {
                 EAServerManager.Instance.config.AllowCrossPlay = !EAServerManager.Instance.config.AllowCrossPlay;

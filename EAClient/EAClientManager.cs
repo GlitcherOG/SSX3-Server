@@ -58,6 +58,7 @@ namespace SSX3_Server.EAClient
 
         public int ForceTrackID = -1;
         public int ForceGamemodeID = -1;
+        public string OverrideIP = "";
 
         public bool EnteringChal;
         public bool Closing;

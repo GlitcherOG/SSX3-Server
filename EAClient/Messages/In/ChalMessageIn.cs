@@ -107,6 +107,16 @@ namespace SSX3_Server.EAClient.Messages
                             OtherIP = OtherUser.LocalIP;
                         }
 
+                        if(HostClient.OverrideIP!="")
+                        {
+                            HostIP = HostClient.OverrideIP;
+                        }
+
+                        if(OtherUser.OverrideIP!="")
+                        {
+                            OtherIP = OtherUser.OverrideIP;
+                        }
+
                         PlusSesMessageOut plusSesMessageOut = new PlusSesMessageOut();
 
                         Guid g = Guid.NewGuid();
