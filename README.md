@@ -43,20 +43,6 @@ News
 
 • News: ✅
 
-## Todo
-- Fix Bug where users are blocked on buddy list when logging in
-- !last to list stats for last game
-- Add Remove Buddy
-- Send Online Details before displaying Search
-- Patch Search so it gets offline personas
-- Add lost user
-- Fix Quick Match So it Works
-- Persona Generator for Duplicate Personas
-- Fix Proper Passwords
-- Fix Title on rooms as it doesnt seem to be appearing
-- Tunneling Service
-- PAL and NTSC Prefix for accounts
-
 ## Setting Up Server (Not Required Unless hosting a server)
 1. Run Server to generate config file and nessasary files
 2. Port forward all three ports found in the config file to your server ListenerPort (11000), GamePort (10901), BuddyPort (13505)
