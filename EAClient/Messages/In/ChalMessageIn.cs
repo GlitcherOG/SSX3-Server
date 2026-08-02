@@ -155,8 +155,8 @@ namespace SSX3_Server.EAClient.Messages
                             plusSesMessageOut.P1 = HostClient.ForceTrackID.ToString();
                         }
 
-                        HostClient.EnteringChal = true;
-                        OtherUser.EnteringChal = true;
+                        HostClient.EnteringChalAt = DateTime.Now;
+                        OtherUser.EnteringChalAt = DateTime.Now;
 
                         SessionDatabse.SessionData sessionData = new SessionDatabse.SessionData();
 

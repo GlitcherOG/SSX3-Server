@@ -60,7 +60,7 @@ namespace SSX3_Server.EAClient
         public int ForceGamemodeID = -1;
         public string OverrideIP = "";
 
-        public bool EnteringChal;
+        public DateTime? EnteringChalAt;
         public bool Closing;
         private readonly static object _lock = new object();
 
@@ -235,7 +235,6 @@ namespace SSX3_Server.EAClient
                 else
                 {
                     LastRecive = DateTime.Now;
-                    EnteringChal = false;
                     PingTimeout = 60;
                     TimeoutSeconds = 300;
                 }

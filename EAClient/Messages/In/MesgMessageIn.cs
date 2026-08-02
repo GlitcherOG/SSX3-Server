@@ -118,7 +118,9 @@ namespace SSX3_Server.EAClient.Messages
                         plusMSGMessageOut.T = TEXT;
                         plusMSGMessageOut.F = "P3";
 
-                        if (!(TEXT == "decline" && client.EnteringChal))
+                        bool RecentlyStartedChal = client.EnteringChalAt.HasValue && (DateTime.Now - client.EnteringChalAt.Value).TotalSeconds < 5;
+
+                        if (!(TEXT == "decline" && RecentlyStartedChal))
                         {
                             TempClient.Broadcast(plusMSGMessageOut);
                         }
