@@ -446,7 +446,7 @@ new Dictionary<int, string>()
             var TempFormating = Formatting.None;
 
             var serializer = JsonConvert.SerializeObject(this, TempFormating);
-            return serializer.ToString();
+            return serializer.ToString().Replace(":null", ":\"NULL\"");
         }
 
         public string CreateJsonCourseText(int ID)
@@ -456,7 +456,7 @@ new Dictionary<int, string>()
             var Entry = courseEntries[ID];
 
             var serializer = JsonConvert.SerializeObject(Entry, TempFormating);
-            return serializer.ToString();
+            return serializer.ToString().Replace(":null", ":\"NULL\"");
         }
 
         public static HighscoreDatabase Load(string path)
