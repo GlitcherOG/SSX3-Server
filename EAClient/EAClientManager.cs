@@ -531,6 +531,7 @@ namespace SSX3_Server.EAClient
         {
                 { "PS2/Beta 1.04-Sep 17 2003", "NA_R_F004" }, //NTSC
                 { "PS2/Alpha 1.4EU-Sep 11 2003", "EU_R_A310" }, //PAL Review Copy
+                { "FLM/A1", "FLM/A1" }, //NTSC Preview Copy
                 { "PS2/Beta 1.04EU-Sep 17 2003", "EU_R_F004" }, //PAL 1.0
                 { "PS2/Beta 1.04EU-Sep 21 2003", "EU_R_F004" }, //PAL 2.0
         };
@@ -540,6 +541,7 @@ namespace SSX3_Server.EAClient
         {
                 { "PS2/Beta 1.04-Sep 17 2003", "NTSC" }, //NTSC
                 { "PS2/Alpha 1.4EU-Sep 11 2003", "PAL R" }, //PAL Review Copy
+                { "FLM/A1", "NTSC P" }, //NTSC Preview Copy
                 { "PS2/Beta 1.04EU-Sep 17 2003", "PAL 1.0" }, //PAL 1.0
                 { "PS2/Beta 1.04EU-Sep 21 2003", "PAL 2.0" }, //PAL 2.0
         };

@@ -116,6 +116,108 @@ namespace SSX3_Server.EAClient.Messages
 
                         plusMSGMessageOut.N = client.LoadedPersona.Name;
                         plusMSGMessageOut.T = TEXT;
+                        plusMSGMessageOut.F = "3";
+
+                        bool RecentlyStartedChal = client.EnteringChalAt.HasValue && (DateTime.Now - client.EnteringChalAt.Value).TotalSeconds < 5;
+
+                        if (!(TEXT == "decline" && RecentlyStartedChal))
+                        {
+                            TempClient.Broadcast(plusMSGMessageOut);
+                        }
+
+                        if (TEXT.Contains("lockchal"))
+                        {
+                            //client.Broadcast(plusMSGMessageOut); //This is wrong? Why does it work? Check If not needed remove to save data
+                            ConsoleManager.WriteLine(client.LoadedPersona.Name + " Accepted Challanage from " + PRIV);
+                        }
+
+                        if (TEXT.Contains("abortChal"))
+                        {
+                            ChalMessageIn.RemoveChallange(client, this);
+
+                            if (client.room != null)
+                            {
+                                DQUEMessageout dQUEMessageout = new DQUEMessageout();
+
+                                client.Broadcast(dQUEMessageout);
+                            }
+
+                            ConsoleManager.WriteLine(client.LoadedPersona.Name + " Aborted Challanage from " + PRIV);
+                        }
+                    }
+                }
+            }
+
+            if(client.VERS== "FLM/A1" && ATTR == "3")
+            {
+                if (PRIV == "Mcomm")
+                {
+                    if (TEXT.Contains("challenge"))
+                    {
+                        //Abort Chal
+                        PlusMSGMessageOut plusMSGMessageOut = new PlusMSGMessageOut();
+
+                        plusMSGMessageOut.N = "Mcomm";
+                        plusMSGMessageOut.T = "abortChal";
+                        plusMSGMessageOut.F = "P3";
+
+                        client.Broadcast(plusMSGMessageOut);
+                    }
+                    return;
+                }
+
+                if (TEXT.Contains("challenge"))
+                {
+                    var TempClient = EAServerManager.Instance.GetUserPersona(PRIV);
+
+                    if (TempClient != null)
+                    {
+                        var TempChallange = new MesgMessageIn.Challange();
+
+                        string[] TempString = TEXT/*.Remove('\"')*/.Split(' ');
+
+                        TempChallange.TrackID = TempString[1];
+                        TempChallange.Gamemode1 = TempString[2];
+                        TempChallange.Gamemode2 = TempString[3];
+                        //TempChallange.Ranked = TempString[4];
+                        //TempChallange.Multipliers = TempString[5];
+                        //TempChallange.Powerups = TempString[6];
+                        //TempChallange.AI = TempString[7];
+                        //TempChallange.PointIcons = TempString[8];
+                        //TempChallange.GameVersion = TempString[9];
+                        //TempChallange.U1 = TempString[10];
+                        //TempChallange.U2 = TempString[11];
+                        //TempChallange.U3 = TempString[12];
+                        //TempChallange.U4 = TempString[13];
+
+                        client.challange = TempChallange;
+
+                        PlusMSGMessageOut plusMSGMessageOut = new PlusMSGMessageOut();
+
+                        if (EAServerManager.Instance.config.AllowCrossPlay)
+                        {
+                            TempChallange.GameVersion = EAClientManager.VersionCodes[TempClient.VERS];
+                        }
+
+                        plusMSGMessageOut.N = client.LoadedPersona.Name;
+                        plusMSGMessageOut.T = "\"challenge " + TempChallange.TrackID + " " + TempChallange.Gamemode1 + " " + TempChallange.Gamemode2;
+                        plusMSGMessageOut.F = "P3";
+
+                        TempClient.Broadcast(plusMSGMessageOut);
+
+                        ConsoleManager.WriteLine(client.LoadedPersona.Name + " Challanaged " + PRIV);
+                    }
+                }
+                else
+                {
+                    var TempClient = EAServerManager.Instance.GetUserPersona(PRIV);
+
+                    if (TempClient != null)
+                    {
+                        PlusMSGMessageOut plusMSGMessageOut = new PlusMSGMessageOut();
+
+                        plusMSGMessageOut.N = client.LoadedPersona.Name;
+                        plusMSGMessageOut.T = TEXT;
                         plusMSGMessageOut.F = "P3";
 
                         bool RecentlyStartedChal = client.EnteringChalAt.HasValue && (DateTime.Now - client.EnteringChalAt.Value).TotalSeconds < 5;
