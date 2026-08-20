@@ -5,22 +5,7 @@ patch=0,EE,004807DC,word,726F2E72
 patch=0,EE,004807E0,word,00000067
 patch=0,EE,004807E4,word,00000000
 
-//[SSX 3 Online DNAS Check]
-//description=No DNAS for SLUS-20772 by VTSTech (DNAS Patcher 21/kHn)
-//patch=1,EE,D110769C,extended,03E00008
-//patch=1,EE,1110765A,extended,0000AC80
-//patch=1,EE,01107660,extended,00000000
-//patch=1,EE,21107674,extended,ACE00004
-//patch=1,EE,211076A0,extended,03E00008
-//patch=1,EE,111076A6,extended,0000ACC3
-//patch=1,EE,2110769C,extended,34030005
-//patch=1,EE,D1194A98,extended,00000007
-//patch=1,EE,01194A98,extended,00000005
-//patch=1,EE,D1194A98,extended,00000006
-//patch=1,EE,D1194A9C,extended,????????
-//patch=1,EE,21194A9C,extended,????????
-//patch=1,EE,D118439C,extended,00000001
-//patch=1,EE,0118439C,extended,00000000
-//patch=1,EE,D1126A24,extended,24020006
-//patch=1,EE,01126A18,extended,00000000
-//patch=1,EE,01126A24,extended,00000005
+[SSX 3 Online DNAS Bypass]
+author=GlitcherOG(Archy)+Claude
+patch=0,EE,203FD138,extended,24020001
+patch=0,EE,203FD13C,extended,AC800000
