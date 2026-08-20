@@ -116,7 +116,7 @@ namespace SSX3_Server.EAClient.Messages
 
                         plusMSGMessageOut.N = client.LoadedPersona.Name;
                         plusMSGMessageOut.T = TEXT;
-                        plusMSGMessageOut.F = "3";
+                        plusMSGMessageOut.F = "P3";
 
                         bool RecentlyStartedChal = client.EnteringChalAt.HasValue && (DateTime.Now - client.EnteringChalAt.Value).TotalSeconds < 5;
 
@@ -147,7 +147,7 @@ namespace SSX3_Server.EAClient.Messages
                     }
                 }
             }
-
+            else
             if(client.VERS== "FLM/A1" && ATTR == "3")
             {
                 if (PRIV == "Mcomm")

@@ -64,7 +64,7 @@ namespace SSX3_Server.EAServer
             plusWhoMessageOut.A = client.LocalIP;
             plusWhoMessageOut.X = "";
             plusWhoMessageOut.S = client.LoadedPersona.GenerateStat();
-            plusWhoMessageOut.R = roomName;
+            plusWhoMessageOut.R = roomType + "." + roomName;
             plusWhoMessageOut.RI = roomId.ToString();
 
             client.Broadcast(plusWhoMessageOut);
