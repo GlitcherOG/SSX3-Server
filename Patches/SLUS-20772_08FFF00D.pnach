@@ -7,24 +7,3 @@ patch=0,EE,004807D8,word,6F787373
 patch=0,EE,004807DC,word,726F2E72
 patch=0,EE,004807E0,word,00000067
 patch=0,EE,004807E4,word,00000000
-
-
-
-//[SSX 3 Online Server Address]
-//author=GlitcherOG(Archy)
-//patch=0,EE,004807D8,word,6F787373
-//patch=0,EE,004807DC,word,726F2E72
-//patch=0,EE,004807E0,word,00000067
-//patch=0,EE,004807E4,word,00000000
-
-//[lily\DNAS Bypass]
-//author=modeco80
-// In cDNASManager::State_UpdateREL(), replace the call
-// to update the DNAS rel with a return 0. This causes the
-// code to instantly exit, and the REL is ok with that.
-//patch=0,EE,002565fc,word,3c020000
-
-//[SSX 3 Online DNAS Bypass]
-//author=GlitcherOG(Archy)+Claude
-//patch=0,EE,203FD138,extended,24020001
-//patch=0,EE,203FD13C,extended,AC800000

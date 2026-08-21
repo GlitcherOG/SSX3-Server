@@ -1,5 +1,8 @@
-[SSX 3 PAL Online Server Address]
-author=Sly/GlitcherOG(Archy)
+[SSX 3 Online]
+author=Sly/GlitcherOG(Archy)&modeco80
+//DNAS Bypass
+patch=0,EE,002560d4,word,3c020000
+//Server Address
 patch=0,EE,00480148,word,6F787373
 patch=0,EE,0048014C,word,726F2E72
 patch=0,EE,00480150,word,00000067
